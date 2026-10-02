@@ -1,0 +1,46 @@
+# OmniType - Python dependencies
+# Pin exact or minimum versions for reproducibility
+
+# --- GUI Framework ---
+PySide6>=6.7.0
+
+# --- Keyboard / Input ---
+keyboard>=0.13.5
+pynput>=1.7.6
+
+# --- Clipboard / Automation ---
+pyperclip>=1.8.2
+pyautogui>=0.9.54
+
+# --- Async HTTP ---
+aiohttp>=3.9.0
+
+# --- Async SQLite ---
+aiosqlite>=0.19.0
+
+# --- Qt + asyncio bridge ---
+qasync>=0.27.1
+
+# --- Encryption ---
+cryptography>=42.0.0
+
+# --- TOML support (tomllib is built-in on Python 3.11+, but tomli is used as fallback) ---
+tomli>=2.0.1; python_version < "3.11"
+tomli-w>=1.0.0
+
+# --- Markdown rendering (popup output) ---
+markdown>=3.5.0
+
+# --- Windows-specific ---
+pywin32>=306
+winrt-Windows.ApplicationModel>=2.0  # MSIX StartupTask API
+
+# --- Process utilities ---
+psutil>=5.9.0
+
+# --- Packaging ---
+pyinstaller>=6.0.0
+
+# --- Testing ---
+pytest>=8.0.0
+pytest-asyncio>=0.23.0

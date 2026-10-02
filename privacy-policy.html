@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Tinky</title>
+    <style>
+        :root {
+            --bg-color: #0b061d;
+            --text-color: #E2D9F3;
+            --accent-color: #7C3AED;
+            --secondary-bg: #1c1335;
+        }
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        h1, h2, h3 {
+            color: #ffffff;
+            margin-top: 2em;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 0.2em;
+        }
+        p, li {
+            font-size: 1.1em;
+            color: #b4a7d6;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        .container {
+            background-color: var(--secondary-bg);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(124, 58, 237, 0.2);
+        }
+        .last-updated {
+            color: #8c7ab8;
+            font-style: italic;
+            margin-bottom: 2em;
+        }
+        strong {
+            color: #E2D9F3;
+        }
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        code {
+            background-color: rgba(124, 58, 237, 0.15);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+            color: #a78bfa;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Privacy Policy for Tinky</h1>
+        <p class="last-updated">Last Updated: July 22, 2026</p>
+
+        <p>Thank you for choosing Tinky ("we," "us," or "our"). We are committed to protecting your privacy and ensuring you have full control over your data. Because Tinky is a locally-installed productivity application that processes text via AI, transparency about how your data is handled is our highest priority.</p>
+        
+        <p>This Privacy Policy explains how Tinky collects, uses, processes, and protects your information.</p>
+
+        <h2>1. Core Philosophy: Local-First & Bring-Your-Own-Key</h2>
+        <p>Tinky operates on a <strong>"Local-First"</strong> and <strong>"Bring-Your-Own-Key" (BYOK)</strong> architecture.</p>
+        <ul>
+            <li>We do not run our own backend servers.</li>
+            <li>We do not collect telemetry, analytics, or usage data.</li>
+            <li>We do not have access to your API keys, the text you write, or the AI responses you generate.</li>
+        </ul>
+
+        <h2>2. Information Processing and Keyboard Hooks</h2>
+        <p>To function as a universal text assistant, Tinky uses local operating system APIs (such as <code>SetWindowsHookEx</code>) to listen for specific keystrokes across different applications.</p>
+        <ul>
+            <li><strong>Volatile Memory Only:</strong> Tinky maintains a small, rolling buffer of your recent keystrokes entirely in volatile system memory (RAM).</li>
+            <li><strong>Trigger Detection:</strong> This buffer is continuously scanned <em>locally</em> for your configured trigger patterns (e.g., <code>.g</code>, <code>.tr</code>, <code>.ta</code>).</li>
+            <li><strong>No Keylogging:</strong> The keystroke buffer is <strong>never</strong> saved to disk, logged to a file, or transmitted over the internet. When you close Tinky or turn off your computer, the buffer is permanently erased.</li>
+        </ul>
+
+        <h2>3. Interaction with Third-Party AI Providers</h2>
+        <p>Tinky acts as a direct bridge between your computer and the AI provider of your choice (e.g., Google Gemini, OpenAI, Anthropic, OpenRouter, Groq).</p>
+        <ul>
+            <li><strong>API Keys:</strong> Your API keys are encrypted locally on your machine using a machine-specific key and stored in your local <code>%APPDATA%</code> folder. They are never transmitted to us or any third party (other than the respective API provider when making a request).</li>
+            <li><strong>Data Transmission:</strong> When you activate a trigger, Tinky securely transmits <em>only</em> the specific text immediately preceding the trigger, along with your system prompt, directly to your configured AI provider via a secure HTTPS connection.</li>
+            <li><strong>Third-Party Policies:</strong> Because Tinky connects directly to these third-party providers using your API key, the processing of that specific text is governed by the Privacy Policy of the AI provider you selected. We encourage you to review their data retention and privacy policies (e.g., many providers do not use API data to train their models).</li>
+        </ul>
+
+        <h2>4. Local Data Storage</h2>
+        <p>Tinky stores certain operational data locally on your device in the <code>%APPDATA%\OmniType</code> directory:</p>
+        <ul>
+            <li><strong>Configuration:</strong> Your preferences, custom triggers, and encrypted API keys.</li>
+            <li><strong>Local History:</strong> A temporary database of recent AI interactions (e.g., original text length, result length, and duration).
+                <ul>
+                    <li><strong>Auto-Purging:</strong> By default, Tinky automatically permanently deletes this history every 5 minutes. You can adjust this duration in the Settings menu.</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h2>5. Information We Collect (None)</h2>
+        <p>Because Tinky does not connect to our servers, we do not collect:</p>
+        <ul>
+            <li>Personal identifiable information (PII)</li>
+            <li>Account details (Tinky does not require an account)</li>
+            <li>Telemetry, crash reports, or usage analytics</li>
+            <li>Your prompts, text, or AI outputs</li>
+        </ul>
+
+        <h2>6. Children's Privacy</h2>
+        <p>Tinky is not directed to individuals under the age of 13. Since we do not collect any personal information, we do not knowingly collect personal information from children under 13.</p>
+
+        <h2>7. Changes to this Privacy Policy</h2>
+        <p>We may update this Privacy Policy periodically to reflect changes in our practices or for other operational, legal, or regulatory reasons. If we make significant changes, we will update the "Last Updated" date at the top of this policy.</p>
+
+        <h2>8. Contact Us</h2>
+        <p>If you have any questions, concerns, or requests regarding this Privacy Policy, please contact us via the project's official repository or support channels.</p>
+    </div>
+</body>
+</html>

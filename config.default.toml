@@ -1,0 +1,142 @@
+﻿# ============================================================
+#  Tinky — Default Configuration
+#  Location: %APPDATA%\Tinky\config.toml
+#
+#  Copy this file to the location above to customise Tinky.
+#  Restart Tinky after saving changes.
+# ============================================================
+
+
+# ------------------------------------------------------------
+#  [ai]  —  AI Provider Settings
+# ------------------------------------------------------------
+[ai]
+
+# Which AI provider to use for text enhancement.
+# Options: "gemini" | "openai" | "cloudflare" | "ollama"
+ai_provider = "gemini"
+
+# Your API key for the selected provider.
+# This value is stored encrypted at rest; never share your config.toml.
+# Leave blank — Tinky will prompt you on first launch.
+api_key_encrypted = ""
+
+# Model identifier to pass to the AI provider.
+# Examples:
+#   gemini   → "gemini-1.5-flash", "gemini-1.5-pro"
+#   openai   → "gpt-4o-mini", "gpt-4o"
+#   ollama   → "llama3", "mistral"
+model = "gemini-1.5-flash"
+
+# Base URL for OpenAI-compatible endpoints or Cloudflare AI Gateway.
+# Leave blank when using the official Google / OpenAI endpoints.
+# Example (Cloudflare): "https://gateway.ai.cloudflare.com/v1/<account>/<gateway-name>/openai"
+# Example (local Ollama): "http://localhost:11434/v1"
+base_url = ""
+
+# Cloudflare Account ID — required only when ai_provider = "cloudflare".
+cloudflare_account_id = ""
+
+# Sampling temperature for AI completions.
+# Lower = more deterministic. Higher = more creative.
+# Range: 0.0 – 2.0  (recommended: 0.3 – 0.9)
+temperature = 0.7
+
+# Target language for the translate trigger (.tr).
+# Use full English language names, e.g. "French", "Spanish", "Japanese".
+translation_target_language = "English"
+
+# Master switch — set to false to disable all AI processing globally.
+# Hotkey to toggle: configurable from the tray icon.
+enabled = true
+
+
+# ------------------------------------------------------------
+#  [triggers]  —  Trigger Shorthand Keys
+#
+#  Type any trigger at the END of your text and press Space (or Enter).
+#  Tinky will detect the suffix, erase it, call the AI, and
+#  replace your text with the improved version — all inline.
+#
+#  Rules:
+#    • Triggers must start with a dot (.)
+#    • Triggers are case-sensitive
+#    • Keep them short to avoid accidental activation
+# ------------------------------------------------------------
+[triggers]
+
+# Fix spelling and grammar — no rewriting.
+# Example: "I has went to store .g" → "I went to the store"
+trigger_grammar = ".g"
+
+# Ask a custom question / give a free-form instruction.
+# Syntax: <context text> .<instruction>. <trigger>
+# Example: "My report .make this more concise. .ta"
+trigger_ask = ".ta"
+
+# Translate the preceding text to `translation_target_language`.
+# Example: "Bonjour le monde .tr" → "Hello world"
+trigger_translate = ".tr"
+
+# Rewrite in a polite / courteous tone.
+trigger_polite = ".polite"
+
+# Rewrite in a professional / business tone.
+trigger_professional = ".professional"
+
+# Rewrite in a warm, friendly tone.
+trigger_friendly = ".friendly"
+
+# Rewrite in a casual / conversational tone.
+trigger_casual = ".casual"
+
+# Rewrite in a formal / academic tone.
+trigger_formal = ".formal"
+
+# Undo the last Tinky replacement and restore the original text.
+trigger_undo = ".undo"
+
+
+# ------------------------------------------------------------
+#  [ui]  —  User Interface Settings
+# ------------------------------------------------------------
+[ui]
+
+# Visual theme for the settings window.
+# Options: "dark" | "light" | "system"
+theme = "dark"
+
+# Show a small desktop notification when text is replaced.
+show_notifications = true
+
+# Launch Tinky automatically when Windows starts.
+# Writes to HKCU\Software\Microsoft\Windows\CurrentVersion\Run.
+start_with_windows = false
+
+# How long (in milliseconds) to display each notification balloon.
+# Range: 500 – 10000
+notification_duration_ms = 2000
+
+
+# ------------------------------------------------------------
+#  [privacy]  —  Privacy & History Settings
+#
+#  Tinky stores a short, local-only history of replacements so
+#  the undo trigger can restore original text. No data ever leaves
+#  your machine through the history subsystem.
+# ------------------------------------------------------------
+[privacy]
+
+# How many minutes to keep replacement history entries.
+# Entries older than this are purged automatically.
+# Set to 0 to disable history entirely (undo will not work).
+history_duration_minutes = 5
+
+# Maximum number of history entries to retain at any time.
+# Oldest entries are evicted when the limit is reached.
+max_history_entries = 50
+
+# After a successful paste, overwrite the clipboard with random bytes
+# so the replaced text is not left in the clipboard indefinitely.
+clear_clipboard_after_paste = true
+
